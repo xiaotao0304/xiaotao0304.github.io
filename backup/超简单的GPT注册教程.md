@@ -1,4 +1,6 @@
 # 首先回顾一下往期内容：CF节点的妙用：[教程](https://www.xtstudy.site/post/5.html)
+## 软件下载链接
+[V2ray下载链接](https://jiangnanyun.xtstudy.site/s/6qCV)
 往期教程我们介绍了CF账号的注册，域名的购买，以及托管的方法，这一期内容我们开始第一个进阶实战
 ## 本期实战内容：利用域名开启CF的邮箱服务。并注册一个GPT账号
 首先进入CF的官网
@@ -46,4 +48,5 @@
 ![2ee9ef609ded7b25.png](http://light.xtstudy.site/LightPicture/2024/07/2ee9ef609ded7b25.png)
 # 联系作者
 邮箱：yanyujiangnan@xiaotaolive.club
+
 
