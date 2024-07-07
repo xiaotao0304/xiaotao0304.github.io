@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    <link rel="icon" href="http://light.xtstudy.site/LightPicture/2024/07/fb7a7b86bda2443a.jpg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="# 今天来介绍一款开源项目，可以为大家制作自己的私人定制图床！
+## 啰嗦几句
+- 1：图床是干什么的？
+- 图片存储和管理：图床提供了一个免费或付费的平台，让用户可以上传、存储和管理图片文件。">
+<meta property="og:title" content="免费开源的图床：在VPS上随时调用你的图片">
+<meta property="og:description" content="# 今天来介绍一款开源项目，可以为大家制作自己的私人定制图床！
+## 啰嗦几句
+- 1：图床是干什么的？
+- 图片存储和管理：图床提供了一个免费或付费的平台，让用户可以上传、存储和管理图片文件。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.xtstudy.site//post/11.html">
+<meta property="og:image" content="http://light.xtstudy.site/LightPicture/2024/07/fb7a7b86bda2443a.jpg">
+<title>免费开源的图床：在VPS上随时调用你的图片</title>
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">免费开源的图床：在VPS上随时调用你的图片</h1>
+<div class="title-right">
+    <a href="https://www.xtstudy.site/" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/xiaotao0304/xiaotao0304.github.io/issues/11" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>今天来介绍一款开源项目，可以为大家制作自己的私人定制图床！</h1>
+<h2>啰嗦几句</h2>
+<ul>
+<li>1：图床是干什么的？</li>
+<li>图片存储和管理：图床提供了一个免费或付费的平台，让用户可以上传、存储和管理图片文件。这些图片可以通过链接在网页上显示，而无需直接存储在网站的服务器上，节省了服务器空间和带宽。</li>
+</ul>
+<p>加速网页加载速度：使用图床上的图片链接替代直接上传图片到网页，可以加快网页的加载速度。因为图床通常会使用CDN（内容分发网络）技术，能够快速地将图片内容分发到全球各地的用户。</p>
+<p>方便的分享和发布：上传到图床的图片可以通过生成的链接方便地分享给他人，比如在社交媒体、论坛、博客等平台上发布内容时使用。</p>
+<p>节省成本：对于个人用户和小型网站，使用免费的图床服务可以节省存储和带宽成本。对于大型网站和应用，选择付费图床服务可以提供更稳定和专业的服务。</p>
+<p>保障图片资源：一些图床提供备份和长期存储功能，确保用户上传的图片资源不会丢失或被删除，提供了一定的安全性和稳定性保障。</p>
+<ul>
+<li>本期用到的开源项目：<a href="https://github.com/osuuu/LightPicture">开源图床</a></li>
+<li>成品展示：</li>
+<li><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/17ebcb5dbbebae610106ef790b179b445e05353971d2b321d5cbc9e621ed06a2/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f323561373335633061303134663735302e706e67"><img src="https://camo.githubusercontent.com/17ebcb5dbbebae610106ef790b179b445e05353971d2b321d5cbc9e621ed06a2/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f323561373335633061303134663735302e706e67" alt="25a735c0a014f750.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/25a735c0a014f750.png" style="max-width: 100%;"></a></li>
+<li>2免费的图床有哪些？</li>
+</ul>
+<ol>
+<li>cloudflare：<a href="https://www.cloudflare-cn.com/" rel="nofollow">CF官网</a></li>
+<li>国内各大云厂家的存储桶服务</li>
+</ol>
+<ul>
+<li>3：CF免费图床需要准备一个自定义域名即可开始使用，搭建较为简单，后续会单独出内容</li>
+<li>
+<h2>开始教程</h2>
+</li>
+</ul>
+<ol>
+<li>用到的项目：<a href="https://github.com/osuuu/LightPicture">Github开源项目</a></li>
+<li>需要准备的环境：一个VPS或者国内的云服务器。本期教程以VPS为主</li>
+<li>VPS推荐1：最适合入门小白的年费10刀VPS—— <a href="https://my.racknerd.com/aff.php?aff=11799" rel="nofollow">注册链接</a><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/29bc0c3120b216d62f0275e6635e4b3bf9d154f970ee842eedf2b241f14573b2/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f386464393137623461653139373230652e706e67"><img src="https://camo.githubusercontent.com/29bc0c3120b216d62f0275e6635e4b3bf9d154f970ee842eedf2b241f14573b2/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f386464393137623461653139373230652e706e67" alt="8dd917b4ae19720e.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/8dd917b4ae19720e.png" style="max-width: 100%;"></a></li>
+<li>VPS推荐2：艾云——价格便宜并且带宽高，适合入门来玩 <a href="https://iaclouds.com/aff.php?aff=1878" rel="nofollow">艾云注册链接</a><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1c524a8ab29f7589c48f87a76a0da3344034c348fd7e0d14df7a2ec0f828be50/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f646262326637343432366165626435642e706e67"><img src="https://camo.githubusercontent.com/1c524a8ab29f7589c48f87a76a0da3344034c348fd7e0d14df7a2ec0f828be50/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f646262326637343432366165626435642e706e67" alt="dbb2f74426aebd5d.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/dbb2f74426aebd5d.png" style="max-width: 100%;"></a></li>
+<li>宝塔服务器面板：<a href="https://github.com/Closty/happpyBT">宝塔面板</a></li>
+<li>因为我的服务器是Ubuntu，所以选择Ubuntu的安装指令：（具体根据happyBT的作者文档内容选择）<br>
+<code class="notranslate">curl -sSO https://52bt.cn/install/new_install.sh &amp;&amp; bash new_install.sh</code><br>
+好的，说完了准备内容，我们直接进入实战环节吧！<br>
+首先进入你的宝塔面板，因为我已经提前安装了面板，进入后看到如下界面<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b81bf67e539dbf9d8ca9977f94735d462b44794beca128be86b77f47cb83ea98/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f343531333865343233613833336162362e706e67"><img src="https://camo.githubusercontent.com/b81bf67e539dbf9d8ca9977f94735d462b44794beca128be86b77f47cb83ea98/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f343531333865343233613833336162362e706e67" alt="45138e423a833ab6.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/45138e423a833ab6.png" style="max-width: 100%;"></a></li>
+</ol>
+<h2>开始部署</h2>
+<ol>
+<li>服务器第一次安装BT面板会有一个部署运行环境阶段，一定要在这个阶段后开始，本期教程的VPS已经完成全部步骤，可以直接开始<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ea4ee6ad8a9a1064415ec4896c98346805db5188d9c1a09c91981d2744ee0940/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f623637636235383932396265306564342e706e67"><img src="https://camo.githubusercontent.com/ea4ee6ad8a9a1064415ec4896c98346805db5188d9c1a09c91981d2744ee0940/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f623637636235383932396265306564342e706e67" alt="b67cb58929be0ed4.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/b67cb58929be0ed4.png" style="max-width: 100%;"></a></li>
+<li>面板地址一般为：你的VPSIP:端口号，信息会在安装完面板告诉你</li>
+<li>进入面板看到如下界面<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b81bf67e539dbf9d8ca9977f94735d462b44794beca128be86b77f47cb83ea98/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f343531333865343233613833336162362e706e67"><img src="https://camo.githubusercontent.com/b81bf67e539dbf9d8ca9977f94735d462b44794beca128be86b77f47cb83ea98/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f343531333865343233613833336162362e706e67" alt="45138e423a833ab6.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/45138e423a833ab6.png" style="max-width: 100%;"></a></li>
+<li>点击网站，创建一个站点，域名已在本频道有所涉及，可回看往期内容</li>
+<li>以这个域名为例，首先在CF配置好，A类型，名字任意，地址写VPSIP<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5dadf6f02a64c8cd6063067dd78033ad35ca6cb37abed9f07b48499514a3b724/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f343663653337343934326230383932302e706e67"><img src="https://camo.githubusercontent.com/5dadf6f02a64c8cd6063067dd78033ad35ca6cb37abed9f07b48499514a3b724/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f343663653337343934326230383932302e706e67" alt="46ce374942b08920.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/46ce374942b08920.png" style="max-width: 100%;"></a><br>
+然后再宝塔创建域名，按以下界面输入即可。被遮挡部分即你的域名<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/22af99052622edc31533b17f032879e7f66f760173139f13c4f74dc77dba3cc0/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f386164393166373865383935633134372e706e67"><img src="https://camo.githubusercontent.com/22af99052622edc31533b17f032879e7f66f760173139f13c4f74dc77dba3cc0/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f386164393166373865383935633134372e706e67" alt="8ad91f78e895c147.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/8ad91f78e895c147.png" style="max-width: 100%;"></a><br>
+8.复制以下链接，在网站目录一栏，选择远程下载，如图所示<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ae9891528678e277f957a2835a60a15a81fbcc5a2030649a5eb965807e0e7cb5/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f626533623034353634363361636166362e706e67"><img src="https://camo.githubusercontent.com/ae9891528678e277f957a2835a60a15a81fbcc5a2030649a5eb965807e0e7cb5/687474703a2f2f6c696768742e787473747564792e736974652f4c69676874506963747572652f323032342f30372f626533623034353634363361636166362e706e67" alt="be3b0456463acaf6.png" data-canonical-src="http://light.xtstudy.site/LightPicture/2024/07/be3b0456463acaf6.png" style="max-width: 100%;"></a><br>
+下载源码链接为 ：<code class="notranslate">https://github.com/osuuu/LightPicture/archive/refs/tags/v1.2.2.zip</code>。输入后确定即可，自动下载<br>
+下载后，解压文件，在网站的界面点击域名<br>
+设置目录为公开。<br>
+配置网站默认：</li>
+</ol>
+<pre class="notranslate"><code class="notranslate">index.html
+index.php
+
+</code></pre>
+<p>伪静态规则设置为ThinkPHP<br>
+配置好后，即可访问域名/install，如我写的域名的a.com，那么访问时就要带上a.com/install，即可看到安装界面<br>
+按说明完成即可<br>
+你就得到了一个自己的图床网站！安装完成后默认账号为admin 密码123456<br>
+视频正在制作中，后续会发布到YouTube上面</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://www.xtstudy.site/"> 烟雨江南频道 </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if(""!=""){
+    var now=new Date();
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","xiaotao0304/xiaotao0304.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+
+</html>
