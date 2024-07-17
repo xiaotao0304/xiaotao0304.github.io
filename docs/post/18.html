@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/173426831?u=5374d01a1ea86e43b881964a20389be58e3c1800&v=4"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="# HEXO：一个简单的个人博客
+
+## 了解HEXO
+
+### 官网介绍：快速、简洁且高效的博客框架
+
+HEXO官网：[HEXO.io](https://hexo.io/zh-cn/)
+
+### 官网界面
+
+![](https://pngs.yanyujiangnan.site/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-17%20223840.png)
+
+### 部署前的准备：
+
+#### NodeJS：[下载链接](https://alist3.xtstudy.site/d/alist/hexo%E6%96%87%E4%BB%B6/node-v20.13.1-x64.msi?sign=tsRRazQlWt11V7kuQKjTrrwotRifAvF749YJ-xMJ0go=:0)
+
+#### Git：[下载链接](https://alist3.xtstudy.site/d/alist/hexo%E6%96%87%E4%BB%B6/Git-2.45.1-64-bit.exe?sign=uNg8sV4hx_764UovO4WDRd2F6fvraAwy6G8XcRIKKR8=:0)
+
+#### 创建一个GitHub仓库
+
+#### 创建一个ssh用于远程登陆
+
+输入以下内容（按顺序），即可完成配置文件的获取
+`git config --global user.name 'yourname' `
+
+`git config --global user.email 'youremail'`
+
+**yourname，就是你的GitHub用户名，email即注册GitHub的邮箱**
+
+## 开始部署
+
+### 安装NodeJS和Git
+
+在1.3部分下载好后，直接安装即可
+
+### 创建一个GitHub仓库，和ssh
+
+在1.3部分已做出说明
+
+### 获取sshkey填入GitHub
+
+打开终端，输入**ssh-keygen -t rsa -C '你的邮箱'**，连续打三个回车，完成这个步骤
+
+这时就会生成ssh文件夹，文件目录一般在 **C:\Users\你的用户名\ .ssh**里
+
+**打开后有一个公钥，一个私钥。">
+<meta property="og:title" content="HEXO个人网站的部署">
+<meta property="og:description" content="# HEXO：一个简单的个人博客
+
+## 了解HEXO
+
+### 官网介绍：快速、简洁且高效的博客框架
+
+HEXO官网：[HEXO.io](https://hexo.io/zh-cn/)
+
+### 官网界面
+
+![](https://pngs.yanyujiangnan.site/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-17%20223840.png)
+
+### 部署前的准备：
+
+#### NodeJS：[下载链接](https://alist3.xtstudy.site/d/alist/hexo%E6%96%87%E4%BB%B6/node-v20.13.1-x64.msi?sign=tsRRazQlWt11V7kuQKjTrrwotRifAvF749YJ-xMJ0go=:0)
+
+#### Git：[下载链接](https://alist3.xtstudy.site/d/alist/hexo%E6%96%87%E4%BB%B6/Git-2.45.1-64-bit.exe?sign=uNg8sV4hx_764UovO4WDRd2F6fvraAwy6G8XcRIKKR8=:0)
+
+#### 创建一个GitHub仓库
+
+#### 创建一个ssh用于远程登陆
+
+输入以下内容（按顺序），即可完成配置文件的获取
+`git config --global user.name 'yourname' `
+
+`git config --global user.email 'youremail'`
+
+**yourname，就是你的GitHub用户名，email即注册GitHub的邮箱**
+
+## 开始部署
+
+### 安装NodeJS和Git
+
+在1.3部分下载好后，直接安装即可
+
+### 创建一个GitHub仓库，和ssh
+
+在1.3部分已做出说明
+
+### 获取sshkey填入GitHub
+
+打开终端，输入**ssh-keygen -t rsa -C '你的邮箱'**，连续打三个回车，完成这个步骤
+
+这时就会生成ssh文件夹，文件目录一般在 **C:\Users\你的用户名\ .ssh**里
+
+**打开后有一个公钥，一个私钥。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pindao.yanyujiangnan.site/post/18.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/173426831?u=5374d01a1ea86e43b881964a20389be58e3c1800&v=4">
+<title>HEXO个人网站的部署</title>
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">HEXO个人网站的部署</h1>
+<div class="title-right">
+    <a href="https://pindao.yanyujiangnan.site" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/xiaotao0304/xiaotao0304.github.io/issues/18" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>HEXO：一个简单的个人博客</h1>
+<h2>了解HEXO</h2>
+<h3>官网介绍：快速、简洁且高效的博客框架</h3>
+<p>HEXO官网：<a href="https://hexo.io/zh-cn/" rel="nofollow">HEXO.io</a></p>
+<h3>官网界面</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7a0fed691cf25ce8aee573690cda4a9def37b71c7959ef378007c01007f99549/68747470733a2f2f706e67732e79616e79756a69616e676e616e2e736974652f254535254231253846254535254239253935254536253838254141254535253942254245253230323032342d30372d31372532303232333834302e706e67"><img src="https://camo.githubusercontent.com/7a0fed691cf25ce8aee573690cda4a9def37b71c7959ef378007c01007f99549/68747470733a2f2f706e67732e79616e79756a69616e676e616e2e736974652f254535254231253846254535254239253935254536253838254141254535253942254245253230323032342d30372d31372532303232333834302e706e67" alt="" data-canonical-src="https://pngs.yanyujiangnan.site/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-17%20223840.png" style="max-width: 100%;"></a></p>
+<h3>部署前的准备：</h3>
+<h4>NodeJS：<a href="https://alist3.xtstudy.site/d/alist/hexo%E6%96%87%E4%BB%B6/node-v20.13.1-x64.msi?sign=tsRRazQlWt11V7kuQKjTrrwotRifAvF749YJ-xMJ0go=:0" rel="nofollow">下载链接</a></h4>
+<h4>Git：<a href="https://alist3.xtstudy.site/d/alist/hexo%E6%96%87%E4%BB%B6/Git-2.45.1-64-bit.exe?sign=uNg8sV4hx_764UovO4WDRd2F6fvraAwy6G8XcRIKKR8=:0" rel="nofollow">下载链接</a></h4>
+<h4>创建一个GitHub仓库</h4>
+<h4>创建一个ssh用于远程登陆</h4>
+<p>输入以下内容（按顺序），即可完成配置文件的获取<br>
+<code class="notranslate">git config --global user.name "yourname" </code></p>
+<p><code class="notranslate">git config --global user.email "youremail"</code></p>
+<p><strong>yourname，就是你的GitHub用户名，email即注册GitHub的邮箱</strong></p>
+<h2>开始部署</h2>
+<h3>安装NodeJS和Git</h3>
+<p>在1.3部分下载好后，直接安装即可</p>
+<h3>创建一个GitHub仓库，和ssh</h3>
+<p>在1.3部分已做出说明</p>
+<h3>获取sshkey填入GitHub</h3>
+<p>打开终端，输入<strong>ssh-keygen -t rsa -C "你的邮箱"</strong>，连续打三个回车，完成这个步骤</p>
+<p>这时就会生成ssh文件夹，文件目录一般在 <strong>C:\Users\你的用户名\ .ssh</strong>里</p>
+<p><strong>打开后有一个公钥，一个私钥。id_rsa.pub是公钥，我们需要打开它，复制里面的内容。</strong></p>
+<p><strong>然后进入github</strong></p>
+<h3>文字详解</h3>
+<ol>
+<li><strong>进入GitHub，点击右侧头像，点击Settings</strong></li>
+<li><strong>点击左侧SSH keys的选项，进入设置页面</strong></li>
+<li><strong>找到右侧栏目中SSHKeys的一项，点击NewKeys</strong></li>
+<li><strong>在弹出的框中输入你在文件中复制的keys</strong></li>
+<li><strong>点击左下方AddKeys即可完成 2.4部分的步骤</strong></li>
+</ol>
+<h3>本地创建一个文件夹，作为博客的主目录</h3>
+<p>如我在D盘创建一个HEXO文件夹，作为她的主目录</p>
+<p>创建完成后，进入这个目录，打开终端</p>
+<p><code class="notranslate">hexo init</code> 输入这个命令开始初始化你的hexo</p>
+<p>随后进入第三部分，开始部署</p>
+<h2>部署hexo</h2>
+<p>要修改主目录下的config文件</p>
+<p>默认的部分不修改，要找到这里：</p>
+<blockquote>
+<p>deploy:</p>
+<p>type: git</p>
+<p>repo: 你的GitHubSSH地址</p>
+<p>branch: main</p>
+</blockquote>
+<p>每一行的英文冒号后面都要加上一个空格</p>
+<h3>repo变量的获取</h3>
+<p><strong>打开的你GitHub仓库，默认在Code页面，你会在你用户名的附近看到Code按钮</strong></p>
+<p><strong>点击她，会看到SSH的字样，下方ssh@开头的地址就是你的repo地址了</strong></p>
+<h3>部署前安装必要的插件，才能完成部署</h3>
+<p>代码如下</p>
+<p><code class="notranslate">npm install hexo-deployer-git --save</code></p>
+<h3>安装完成后执行命令</h3>
+<ol>
+<li><code class="notranslate">hexo clean</code></li>
+<li><code class="notranslate">hexo g</code></li>
+<li><code class="notranslate">hexo d</code></li>
+</ol>
+<h3>命令解释</h3>
+<h4><code class="notranslate">hexo clean</code></h4>
+<p>用来清除hexo博客的缓存</p>
+<h4><code class="notranslate">hexo g</code></h4>
+<p>生成我们的博客内容</p>
+<h4><code class="notranslate">hexo d</code></h4>
+<p>把我们的博客文件部署到GitHub</p>
+<h3>提示</h3>
+<p>每次写好新的文章，都要依次执行这三个命令，来完成内容的上传</p>
+<h2>成品展示</h2>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/29c7279b25202880a911bf9aff9d41bffb0d5d1c55a7746bb30a6518938002da/68747470733a2f2f706e67732e79616e79756a69616e676e616e2e736974652f254535254231253846254535254239253935254536253838254141254535253942254245253230323032342d30372d31372532303233313834332e706e67"><img src="https://camo.githubusercontent.com/29c7279b25202880a911bf9aff9d41bffb0d5d1c55a7746bb30a6518938002da/68747470733a2f2f706e67732e79616e79756a69616e676e616e2e736974652f254535254231253846254535254239253935254536253838254141254535253942254245253230323032342d30372d31372532303233313834332e706e67" alt="主界面" data-canonical-src="https://pngs.yanyujiangnan.site/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-17%20231843.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bc0e42cf516f63fc72167f3e61e7fbb2c5a50eb19e741cfbe4a122520faece43/68747470733a2f2f706e67732e79616e79756a69616e676e616e2e736974652f254535254231253846254535254239253935254536253838254141254535253942254245253230323032342d30372d31372532303233313934362e706e67"><img src="https://camo.githubusercontent.com/bc0e42cf516f63fc72167f3e61e7fbb2c5a50eb19e741cfbe4a122520faece43/68747470733a2f2f706e67732e79616e79756a69616e676e616e2e736974652f254535254231253846254535254239253935254536253838254141254535253942254245253230323032342d30372d31372532303233313934362e706e67" alt="文章展示页面" data-canonical-src="https://pngs.yanyujiangnan.site/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-17%20231946.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/774472d3f1b088dfe1eae7c0f8f114afb091de7549cd526de225925f382b7e79/68747470733a2f2f706e67732e79616e79756a69616e676e616e2e736974652f254535254231253846254535254239253935254536253838254141254535253942254245253230323032342d30372d31372532303233323034312e706e67"><img src="https://camo.githubusercontent.com/774472d3f1b088dfe1eae7c0f8f114afb091de7549cd526de225925f382b7e79/68747470733a2f2f706e67732e79616e79756a69616e676e616e2e736974652f254535254231253846254535254239253935254536253838254141254535253942254245253230323032342d30372d31372532303233323034312e706e67" alt="阅读界面" data-canonical-src="https://pngs.yanyujiangnan.site/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-07-17%20232041.png" style="max-width: 100%;"></a></p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://pindao.yanyujiangnan.site"> 烟雨江南频道 </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if(""!=""){
+    var now=new Date();
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","xiaotao0304/xiaotao0304.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+
+</html>
